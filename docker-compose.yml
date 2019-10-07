@@ -1,0 +1,16 @@
+version: "2.4"
+services:
+  db:
+    image: postgres:12.0-alpine
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d
+    ports:
+      - 5432
+    environment:
+      POSTGRES_DB: sampledb
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: topsecret
+
+volumes:
+  pg-data:

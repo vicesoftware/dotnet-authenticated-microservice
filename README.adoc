@@ -1,0 +1,5 @@
+= .NET Microservice and Docker
+
+This is a sample project for a microservice written in .NET Core 2.2 and C# that accesses a Postgres DB. The goal of this project is to establish a smooth process for test drive development (TDD) of the microservice leveraging the power of Docker container and the `docker-compose` tool.
+
+Please read my blog post describing the details: http://gabrielschenker.com/index.php/2019/10/04/a-docker-workflow-for-net-developers/
