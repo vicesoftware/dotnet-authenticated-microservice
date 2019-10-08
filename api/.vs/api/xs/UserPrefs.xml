@@ -1,17 +1,16 @@
-﻿<Properties StartupConfiguration="{CBBA7B3D-1575-4923-9849-A2FEB485032E}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Dockerfile">
+﻿<Properties StartupConfiguration="{C57433ED-89C2-4D0F-BE3A-5F4A00C8F195}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/ValuesController.cs">
     <Files>
-      <File FileName="Program.cs" Line="26" Column="1" />
-      <File FileName="Startup.cs" Line="25" Column="101" />
-      <File FileName="Controllers/ValuesController.cs" Line="17" Column="18" />
-      <File FileName="Dockerfile" Line="1" Column="1" />
+      <File FileName="Controllers/ValuesController.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="api" expanded="True">
             <Node name="api" expanded="True">
-              <Node name="Dockerfile" selected="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="ValuesController.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>

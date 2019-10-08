@@ -11,13 +11,13 @@ namespace api.Controllers
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class ProgramTypesController : ControllerBase
     {
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            var items = new string[] { "value1", "value2", "values3" };
+            var items = new string[] { "Certificate", "Graduate", "UnderGraduate" };
             return Ok(items);
         }
 
