@@ -18,7 +18,7 @@ services:
       - ./api:/app/api
       - ./tests:/app/tests
     ports:
-      - 5000:5000
+      - 5001:5001
     command: dotnet watch --project api run
 
   reverseproxy:
@@ -26,7 +26,7 @@ services:
       context: ./reverseproxy
       dockerfile: Dockerfile
     ports:
-      - "80:80"
+      - "81:81"
     links:
       - api
 

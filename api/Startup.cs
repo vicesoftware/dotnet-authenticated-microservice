@@ -25,7 +25,14 @@ namespace api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddAuthentication("Bearer")
+             .AddJwtBearer(options =>
+             {
+                 options.Audience = "11h81m4rsvbo8vo0ih2mdnom1";
+                 options.Authority = "https://cognito-idp.ap-south-1.amazonaws.com/ap-south-1_QHqLZl116";
+             });
+
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -18,7 +18,7 @@ services:
       - ./api:/app/api
       - ./tests:/app/tests
     ports:
-      - 5000:5000
+      - 5001:5001
     command: dotnet watch --project tests test
 
 volumes:
