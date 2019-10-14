@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,12 +26,15 @@ namespace api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication("Bearer")
-             .AddJwtBearer(options =>
-             {
-                 options.Audience = "11h81m4rsvbo8vo0ih2mdnom1";
-                 options.Authority = "https://cognito-idp.ap-south-1.amazonaws.com/ap-south-1_QHqLZl116";
-             });
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.Authority = "https://vice-sample.auth0.com/";
+                options.Audience = "https://vice-sample.microservices.com";
+            });
 
             services.AddMvc();
         }
@@ -50,6 +54,7 @@ namespace api
 
             // app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseAuthentication();
         }
     }
 }
