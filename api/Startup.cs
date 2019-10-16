@@ -63,7 +63,7 @@ namespace api
             }
 
             app.UseCors(
-            options => options.WithOrigins("https://d25rnerfjy69ud.cloudfront.net").AllowAnyMethod().AllowAnyHeader()
+            options => options.WithOrigins("https://d25rnerfjy69ud.cloudfront.net/").AllowAnyMethod().AllowAnyHeader()
                 );
 
             // app.UseHttpsRedirection();
