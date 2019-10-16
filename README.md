@@ -1,8 +1,18 @@
-= .NET Microservice and Docker
+# .NET Microservice and Docker
 
 This is a sample project for a microservice written in .NET Core 2.2 and C# that accesses a Postgres DB. The goal of this project is to establish a smooth process for test drive development (TDD) of the microservice leveraging the power of Docker container and the `docker-compose` tool.
 
 Please read my blog post describing the details: http://gabrielschenker.com/index.php/2019/10/04/a-docker-workflow-for-net-developers/
+
+## Getting Started
+To build the container, from the `./api` directory
+
+`build -t auth-api:1.0 .`
+
+
+To run the container
+
+`docker run -d -p 5002:5001 auth-api:1.0`
 
 ## Ryan's Notes
 I'm trying to get identity working using Cognito as Prashanth and I discussed. This repo is based on Gabriel`s .net boilerplate: http://gabrielschenker.com/index.php/2019/10/04/a-docker-workflow-for-net-developers/
@@ -14,8 +24,8 @@ I'm working on getting it working using this approach: https://aws.amazon.com/bl
 To try and get this to work I added `docker-compose-run-watch.yml` file that contains a compose that attempts to start
 
 1. ASP.Net Core API
-1. nginx proxy
-1. postgres db (note db isn't currently used by api)
+2. nginx proxy
+3. postgres db (note db isn't currently used by api)
 
 ### Current Status ###
 Below is the command line flow and I'm getting an error as shown at the end.

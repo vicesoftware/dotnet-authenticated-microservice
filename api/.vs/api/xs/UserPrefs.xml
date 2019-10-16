@@ -1,22 +1,22 @@
 ﻿<Properties StartupConfiguration="{C57433ED-89C2-4D0F-BE3A-5F4A00C8F195}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/ValuesController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Startup.cs">
     <Files>
-      <File FileName="Controllers/ValuesController.cs" Line="1" Column="1" />
+      <File FileName="Startup.cs" Line="40" Column="37" />
+      <File FileName="Program.cs" Line="1" Column="1" />
+      <File FileName="Dockerfile" />
+      <File FileName="appsettings.json" />
+      <File FileName="Controllers/ProgramTypesController.cs" Line="29" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="api" expanded="True">
             <Node name="api" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="ValuesController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

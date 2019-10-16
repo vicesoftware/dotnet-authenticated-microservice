@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Logging;
 
 namespace api
 {
@@ -22,15 +24,27 @@ namespace api
 
         public IConfiguration Configuration { get; }
 
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication("Bearer")
-             .AddJwtBearer(options =>
-             {
-                 options.Audience = "11h81m4rsvbo8vo0ih2mdnom1";
-                 options.Authority = "https://cognito-idp.ap-south-1.amazonaws.com/ap-south-1_QHqLZl116";
-             });
+            // 1. Add Authentication Services
+            services.AddAuthentication(options =>
+                {
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+            .AddJwtBearer(options =>
+                {
+                    options.Authority = "https://bisk-dev.auth0.com/";
+                    options.Audience = "https://bisk-vnext";
+                });
+
+            services.AddCors();
+
+            // TODO: REMOVE THIS BEFORE DEPLOYING
+            IdentityModelEventSource.ShowPII = true;
 
             services.AddMvc();
         }
@@ -48,8 +62,14 @@ namespace api
                 app.UseHsts();
             }
 
+            app.UseCors(
+            options => options.WithOrigins("http://localhost:8080").AllowAnyMethod().AllowAnyHeader()
+                );
+
             // app.UseHttpsRedirection();
             app.UseMvc();
+
+            app.UseAuthentication();
         }
     }
 }
